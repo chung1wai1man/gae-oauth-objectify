@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>startOAuthProcess</servlet-name>
+        <servlet-class>com.veersoft.servlet.StartOAuthProcessServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>startOAuthProcess</servlet-name>
+        <url-pattern>/startoauth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>callbackOAuth</servlet-name>
+        <servlet-class>com.veersoft.servlet.CallbackOAuthProcessServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>callbackOAuth</servlet-name>
+        <url-pattern>/callbackoauth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>successServlet</servlet-name>
+        <servlet-class>com.veersoft.servlet.SuccessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>successServlet</servlet-name>
+        <url-pattern>/admin/success</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logOut</servlet-name>
+        <servlet-class>com.veersoft.servlet.LogOutServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logOut</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>com.veersoft.server.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>com.veersoft.server.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+</web-app>
